@@ -427,7 +427,7 @@ export default function PeerEvaluationForm() {
     <div className="container">
       <h1>Peer Evaluation</h1>
       <p className="subtitle">
-        Rate <b>all members of your team</b> — self-ratings are allowed.
+        Please rate all of your team members, including yourself.
       </p>
 
       <form ref={formRef} onSubmit={handleSubmit}>
