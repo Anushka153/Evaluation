@@ -361,7 +361,7 @@ export default function PeerEvaluationForm() {
     if (!isWiscEmail(email))
       {
       alert(
-        "wisc.edu"
+        "Please use wisc.edu id"
       );
       setLoading(false)
       return;
