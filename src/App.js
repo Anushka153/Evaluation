@@ -330,9 +330,13 @@ export default function PeerEvaluationForm() {
       [member]: { ...(prev[member] || {}), [field]: value },
     }));
   };
+  function isWiscEmail(email) {
+    return /^[A-Za-z0-9._%+-]+@wisc\.edu$/i.test(email);
+  }
 
   const validate = () => {
-    if (!email || !yourName || !team) return false;
+    if ( !email || !yourName || !team ) return false;
+   
     return members.every((m) => {
       const r = ratings?.[m] || {};
       const hasOverall = !!r[overallQuestion.id];
@@ -352,7 +356,16 @@ export default function PeerEvaluationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading( true )
+    console.log('email', email)
+    if (!isWiscEmail(email))
+      {
+      alert(
+        "wisc.edu"
+      );
+      setLoading(false)
+      return;
+    };
     if (!validate()) {
       alert(
         "Please complete all fields: email, your name, team, the 1 to 10 overall rating and the 1 to 5 comparison rating for each member."
