@@ -7,164 +7,233 @@ import "./style.css";
 // ---------- CONFIG: TEAMS & QUESTIONS ----------
 const teamsData = {
   // ----- SECTION 001 -----
-  "Ace Hardware": [
-    "Shelly Chang",
-    "Audrey Friedman",
-    "Harnoor Kaur",
-    "Julia Mcsweeney",
-    "Gaby Pan",
-    "Annie Possehl"
+  "Art & Sons Design": [
+    "Owen Hollinger",
+    "Maren Jensen",
+    "Ella Needham",
+    "John Nehls",
+    "Drew Sonderman"
   ],
-
-  "Keller Williams – Mandel Group": [
-    "Alex Alonso-Cuevas",
-    "Zachary Clark",
-    "Shannon Mcallister",
-    "Sophia Stone",
-    "Zihe Yu",
-    "Ben Zeller"
+  "Avalon Salon": [
+    "Lilian Chang",
+    "Melissa Flores",
+    "Hayley Krause",
+    "Abby Needham",
+    "Jiahui Shen"
   ],
-
-  "Maize": [
-    "William Brown",
-    "Anna Fahl",
-    "Yessica Garcia",
-    "Ryan Rasmussen",
-    "Isha Touray",
-    "Luke Violich Czinczoll"
+  "Girl Scouts of Wisconsin": [
+    "Katie Gaslow",
+    "Bridget Helland",
+    "Avianna Meder",
+    "Hillary Shirley",
+    "Ethan Siczkowycz",
+    "Jaden Young"
   ],
-
-  "Night Owl Support Services": [
-    "Ethan Beit-Halachmy",
-    "Audrey Danniger",
-    "Oliver Killian",
-    "Ava Moder",
-    "Sydney Urben",
-    "Ruby Wolfers"
+  "Hey Hey Vacay": [
+    "Yasir Baig",
+    "Elaina DeBord",
+    "Shane Fisher",
+    "Dylan Krage",
+    "Jesse Wild",
+    "Cooper Zielke"
   ],
-
-  "Tecovas": [
-    "Matthew Johnson",
-    "Ava Kersh",
-    "Emily Nordhaus",
-    "James Olejniczak",
-    "Catherine Seward",
-    "Thomas Stattine"
+  "UW Book Store": [
+    "Lucas Blair",
+    "Annabella Kennedy",
+    "Rolando Rodriguez-Wilson",
+    "Daniella (Dani) Sananes",
+    "Maxwell Schmidt",
+    "Preston Wateska"
   ],
-
-  "Universal Home Protection": [
-    "Lila Cerrito",
-    "Bryce Gamelin",
-    "Luke Geary",
-    "Lydia Mao",
-    "Sophia Orwig",
-    "Emmy Skogstad"
+  "Hill Electric": [
+    "Dylan Goodman",
+    "Madeline Haug",
+    "Laurel Miller",
+    "Emma Schrei"
   ],
-
-  "University Book Store": [
-    "Ava Douglass",
-    "Molly Gandler",
-    "Tess Papageorge",
-    "Stephania Rundall",
-    "Katrina Silvers"
+  "Milwaukee Tool": [
+    "Christian Garcia",
+    "Hope Pelland",
+    "Sam Pincus",
+    "Tatum Schaff",
+    "Amir Sedik",
+    "Micah Wilson"
   ],
-
-  "Urban Community Arts Network": [
-    "Elena Greco",
-    "Riley Magurany",
-    "Samantha Merck",
-    "Samantha Rathman",
-    "Mandy Umpierre",
-    "Autumn Windus"
+  "Schweid & Sons": [
+    "Casey Ascencio Munoz",
+    "Benji Blair",
+    "Luna Larson",
+    "Lena Shi",
+    "Jenna Victor",
+    "Tyler Voss"
   ],
-
-  "Wade House": [
-    "Camille Clark",
-    "Alexandra Eisler",
-    "Kaleb Frey",
-    "Joel Lopez",
-    "Andrew Mayhew",
-    "Abby Nemergut"
-  ],
-
   "Z Boutique": [
-    "Trista Anderson",
-    "Casey Coan",
-    "Sasha Huehnerfuss",
-    "Alexandria Kraimer",
-    "Madison Timmerman",
-    "Layla Ward"
+    "Bryce Dailey",
+    "Sunny Ganchan",
+    "Cat Harrison",
+    "Mara Holmes",
+    "Leah Kennedy"
   ],
 
   // ----- SECTION 002 -----
+  "Sober Social Club Bottle Shop": [
+    "Liv O'Neil",
+    "Madison Rosenberg",
+    "Ben Schneider",
+    "Sam Sielaff",
+    "Choua Yang",
+    "Tanner Ziese"
+  ],
+  "Auburn Ridge Cabinets": [
+    "Amelia Darrah",
+    "Yasmin Garcia Zalapa",
+    "Ann (Annie) Hammel",
+    "Calli Haus",
+    "Ann Kuo"
+  ],
+  "Universal Home Protection": [
+    "Morgan Desens",
+    "Luke Garrett",
+    "Julianna Kass",
+    "Joey Okla",
+    "Jamison Rudie",
+    "Maren Wegley"
+  ],
+  "Union Cab": [
+    "Chloe Altman",
+    "Samantha Homme",
+    "Alex Jacoboski",
+    "Hannah Keener",
+    "Tong Vue",
+    "Reilly West"
+  ],
+  "Maize": [
+    "Matthew Angsiwapong",
+    "Mira Borglin",
+    "Kaelee Hahn",
+    "Kilee Knapp",
+    "Aanya Rathod",
+    "Drew Van Wie"
+  ],
+  "Spray-Net": [
+    "Annabel Allen",
+    "Ilana Goldklang",
+    "Macy Hall",
+    "Emma Rush",
+    "Riley Sass",
+    "Thomas Van Handel"
+  ],
+  "Keva Sports": [
+    "Alex Alvarez",
+    "Greg Dekker",
+    "Arielle Herz",
+    "Lillian Megan",
+    "Carly Miller",
+    "Drew Wegert"
+  ],
+  "Blain’s Farm & Fleet": [
+    "Jenna Cairns",
+    "Henri Clarke",
+    "Betsy Fries",
+    "Maddie Poor",
+    "Lydia Stolman",
+    "Colin Terpstra"
+  ],
+  "Culver’s": [
+    "Ella Bradley",
+    "Katelyn Kolhoff",
+    "Jayden Rosenthal",
+    "William Rutkowski",
+    "Cooper Shelton"
+  ],
   "Boneyard": [
-    "Connell Mcgee",
-    "Jackson Phillips",
-    "Khin Myat Shin",
-    "Regan Staudt",
-    "Rene Varona",
-    "Sarah Zhong"
+    "Aylin Curtis",
+    "Lucy Gonzalez",
+    "Sean Harper",
+    "Joslyn Oakley",
+    "Ben Vigran"
   ],
 
-  "Diamonds Doing Good": [
-    "Rob Booker",
-    "Jack Loyda",
-    "Qingpeng Meng",
-    "Delaney Pfeiffer",
-    "Yiwen Ruan",
-    "Mercy Salzwedel"
+  // ----- SECTION 003 -----
+  "Arizona River Runners": [
+    "Riley Del Percio",
+    "Paige Olson",
+    "Mikaela Snitzer",
+    "Maya Stagman",
+    "Kathryn Stearns",
+    "Kelly Qi Ye"
   ],
-
-  "Milwaukee Tool": [
-    "Tyson Dyck",
-    "Haowei He",
-    "Kai Heverly",
-    "Alberto Lopez",
-    "Jacob Schaefer",
-    "Zhiyin Zheng"
+  "White House Historical Association": [
+    "Chloe Caravaj",
+    "Julia DiDomizio",
+    "Claire Patrow",
+    "Elizabeth Schutz",
+    "Vee Sridhar",
+    "Sophia Swenson"
   ],
-
-  "Schweid & Sons": [
-    "Roman Eisa",
-    "Nataly Flores Macias",
-    "Garrett Grassl",
-    "Carter Johnson",
-    "Cole Kampa"
+  "Revolve Cycle Studio": [
+    "Stella Kim",
+    "Danny Nguyen",
+    "Madeline Setliff",
+    "Eva Silver",
+    "Remy Waldman",
+    "Zach Walsh"
   ],
-
-  "Simpli Soda": [
-    "Jaselle Campos",
-    "Ruijia Chen",
-    "Kyle Clabough",
-    "Maile Cohen",
-    "Samuel Groblewski",
-    "Julia Spilling"
+  "Madison Food Pantry Garden": [
+    "Jake Bloomberg",
+    "Carson Hill",
+    "Ellie Livermore",
+    "Anne Rewey",
+    "Alex Shellow",
+    "Iris Teharne-Jones"
   ],
-
-  "Spray Net": [
-    "Hailey Burklund",
-    "Jeff Dillon",
-    "Joseph Palodichuk",
-    "Lukas Schorr",
-    "Anya Zydek"
+  "Prime IV Hydration": [
+    "Justin Buchbinder",
+    "Danielle Kovel",
+    "Eli Kroskin",
+    "Maya Levine",
+    "Caris Mullen",
+    "Aidan Rindfleisch"
   ],
-
-  "State Farm": [
-    "Andrew Chavez",
-    "Ava Gauthier",
-    "Adam Luo",
-    "Zoe Lee",
-    "Max Reinhardt",
-    "Miller Solome"
+  "Tecovas": [
+    "Maeve Condon",
+    "Brendan Cucuzza",
+    "Nataly Enerson",
+    "Ethan Kessler",
+    "Haley Slate",
+    "Preet Talwar"
   ],
-
-  "Veridian Homes": [
-    "Michael Angsiwapong",
-    "Ben Dickson",
-    "Sydney Gasmer",
-    "Vesa Ljumani",
-    "Stephanie Malagon",
-    "Matthew Pouliot"
+  "Ace Hardware": [
+    "Emma Gubin",
+    "Marissa Isaacs",
+    "Kat Kessler",
+    "Julia Ross",
+    "Meg Simonte",
+    "Audrey Soderlund"
+  ],
+  "Swiss Colony": [
+    "Eliza Darling",
+    "Matthew Granoff",
+    "Lucy Kennedy",
+    "Pieter Mulder",
+    "Lilly Phan",
+    "Dylen Shany"
+  ],
+  "Transformation Center": [
+    "Hailey Bruder",
+    "Avery Frank",
+    "Adrian Jauregui",
+    "Yuchen Qian",
+    "Ella Rigby",
+    "Holly Strang"
+  ],
+  "Windsor Breads and Bakery": [
+    "Henry Hansen",
+    "Joseph Bonnie",
+    "Lily Shen",
+    "Eliza Pappas",
+    "Frankie Rosenberg",
+    "Zachary Rosenberg"
   ]
 };
 
