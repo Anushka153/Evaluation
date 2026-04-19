@@ -1,234 +1,233 @@
-"use client";
+'use client';
 
-import React, { useMemo, useState, useEffect, useRef } from "react";
-import "./style.css";
+import React, { useMemo, useState, useEffect, useRef } from 'react';
+import './style.css';
 
 // ---------- CONFIG: TEAMS & QUESTIONS ----------
 // ---------- CONFIG: TEAMS & QUESTIONS ----------
 const teamsData = {
   // ----- SECTION 001 -----
-  "Ace Hardware": [
-    "Shelly Chang",
-    "Audrey Friedman",
-    "Harnoor Kaur",
-    "Julia Mcsweeney",
-    "Gaby Pan",
-    "Annie Possehl"
+  'Ace Hardware': [
+    'Shelly Chang',
+    'Audrey Friedman',
+    'Harnoor Kaur',
+    'Julia Mcsweeney',
+    'Gaby Pan',
+    'Annie Possehl',
   ],
 
-  "Keller Williams – Mandel Group": [
-    "Alex Alonso-Cuevas",
-    "Zachary Clark",
-    "Shannon Mcallister",
-    "Sophia Stone",
-    "Zihe Yu",
-    "Ben Zeller"
+  'Keller Williams – Mandel Group': [
+    'Alex Alonso-Cuevas',
+    'Zachary Clark',
+    'Shannon Mcallister',
+    'Sophia Stone',
+    'Zihe Yu',
+    'Ben Zeller',
   ],
 
-  "Maize": [
-    "William Brown",
-    "Anna Fahl",
-    "Yessica Garcia",
-    "Ryan Rasmussen",
-    "Isha Touray",
-    "Luke Violich Czinczoll"
+  Maize: [
+    'William Brown',
+    'Anna Fahl',
+    'Yessica Garcia',
+    'Ryan Rasmussen',
+    'Isha Touray',
+    'Luke Violich Czinczoll',
   ],
 
-  "Night Owl Support Services": [
-    "Ethan Beit-Halachmy",
-    "Audrey Danniger",
-    "Oliver Killian",
-    "Ava Moder",
-    "Sydney Urben",
-    "Ruby Wolfers"
+  'Night Owl Support Services': [
+    'Ethan Beit-Halachmy',
+    'Audrey Danniger',
+    'Oliver Killian',
+    'Ava Moder',
+    'Sydney Urben',
+    'Ruby Wolfers',
   ],
 
-  "Tecovas": [
-    "Matthew Johnson",
-    "Ava Kersh",
-    "Emily Nordhaus",
-    "James Olejniczak",
-    "Catherine Seward",
-    "Thomas Stattine"
+  Tecovas: [
+    'Matthew Johnson',
+    'Ava Kersh',
+    'Emily Nordhaus',
+    'James Olejniczak',
+    'Catherine Seward',
+    'Thomas Stattine',
   ],
 
-  "Universal Home Protection": [
-    "Lila Cerrito",
-    "Bryce Gamelin",
-    "Luke Geary",
-    "Lydia Mao",
-    "Sophia Orwig",
-    "Emmy Skogstad"
+  'Universal Home Protection': [
+    'Lila Cerrito',
+    'Bryce Gamelin',
+    'Luke Geary',
+    'Lydia Mao',
+    'Sophia Orwig',
+    'Emmy Skogstad',
   ],
 
-  "University Book Store": [
-    "Ava Douglass",
-    "Molly Gandler",
-    "Tess Papageorge",
-    "Stephania Rundall",
-    "Katrina Silvers"
+  'University Book Store': [
+    'Ava Douglass',
+    'Molly Gandler',
+    'Tess Papageorge',
+    'Stephania Rundall',
+    'Katrina Silvers',
   ],
 
-  "Urban Community Arts Network": [
-    "Elena Greco",
-    "Riley Magurany",
-    "Samantha Merck",
-    "Samantha Rathman",
-    "Mandy Umpierre",
-    "Autumn Windus"
+  'Urban Community Arts Network': [
+    'Elena Greco',
+    'Riley Magurany',
+    'Samantha Merck',
+    'Samantha Rathman',
+    'Mandy Umpierre',
+    'Autumn Windus',
   ],
 
-  "Wade House": [
-    "Camille Clark",
-    "Alexandra Eisler",
-    "Kaleb Frey",
-    "Joel Lopez",
-    "Andrew Mayhew",
-    "Abby Nemergut"
+  'Wade House': [
+    'Camille Clark',
+    'Alexandra Eisler',
+    'Kaleb Frey',
+    'Joel Lopez',
+    'Andrew Mayhew',
+    'Abby Nemergut',
   ],
 
-  "Z Boutique": [
-    "Trista Anderson",
-    "Casey Coan",
-    "Sasha Huehnerfuss",
-    "Alexandria Kraimer",
-    "Madison Timmerman",
-    "Layla Ward"
+  'Z Boutique': [
+    'Trista Anderson',
+    'Casey Coan',
+    'Sasha Huehnerfuss',
+    'Alexandria Kraimer',
+    'Madison Timmerman',
+    'Layla Ward',
   ],
 
   // ----- SECTION 002 -----
-  "Boneyard": [
-    "Connell Mcgee",
-    "Jackson Phillips",
-    "Khin Myat Shin",
-    "Regan Staudt",
-    "Rene Varona",
-    "Sarah Zhong"
+  Boneyard: [
+    'Connell Mcgee',
+    'Jackson Phillips',
+    'Khin Myat Shin',
+    'Regan Staudt',
+    'Rene Varona',
+    'Sarah Zhong',
   ],
 
-  "Diamonds Doing Good": [
-    "Rob Booker",
-    "Jack Loyda",
-    "Qingpeng Meng",
-    "Delaney Pfeiffer",
-    "Yiwen Ruan",
-    "Mercy Salzwedel"
+  'Diamonds Doing Good': [
+    'Rob Booker',
+    'Jack Loyda',
+    'Qingpeng Meng',
+    'Delaney Pfeiffer',
+    'Yiwen Ruan',
+    'Mercy Salzwedel',
   ],
 
-  "Milwaukee Tool": [
-    "Tyson Dyck",
-    "Haowei He",
-    "Kai Heverly",
-    "Alberto Lopez",
-    "Jacob Schaefer",
-    "Zhiyin Zheng"
+  'Milwaukee Tool': [
+    'Tyson Dyck',
+    'Haowei He',
+    'Kai Heverly',
+    'Alberto Lopez',
+    'Jacob Schaefer',
+    'Zhiyin Zheng',
   ],
 
-  "Schweid & Sons": [
-    "Roman Eisa",
-    "Nataly Flores Macias",
-    "Garrett Grassl",
-    "Carter Johnson",
-    "Cole Kampa"
+  'Schweid & Sons': [
+    'Roman Eisa',
+    'Nataly Flores Macias',
+    'Garrett Grassl',
+    'Carter Johnson',
+    'Cole Kampa',
   ],
 
-  "Simpli Soda": [
-    "Jaselle Campos",
-    "Ruijia Chen",
-    "Kyle Clabough",
-    "Maile Cohen",
-    "Samuel Groblewski",
-    "Julia Spilling"
+  'Simpli Soda': [
+    'Jaselle Campos',
+    'Ruijia Chen',
+    'Kyle Clabough',
+    'Maile Cohen',
+    'Samuel Groblewski',
+    'Julia Spilling',
   ],
 
-  "Spray Net": [
-    "Hailey Burklund",
-    "Jeff Dillon",
-    "Joseph Palodichuk",
-    "Lukas Schorr",
-    "Anya Zydek"
+  'Spray Net': [
+    'Hailey Burklund',
+    'Jeff Dillon',
+    'Joseph Palodichuk',
+    'Lukas Schorr',
+    'Anya Zydek',
   ],
 
-  "State Farm": [
-    "Andrew Chavez",
-    "Ava Gauthier",
-    "Adam Luo",
-    "Zoe Lee",
-    "Max Reinhardt",
-    "Miller Solome"
+  'State Farm': [
+    'Andrew Chavez',
+    'Ava Gauthier',
+    'Adam Luo',
+    'Zoe Lee',
+    'Max Reinhardt',
+    'Miller Solome',
   ],
 
-  "Veridian Homes": [
-    "Michael Angsiwapong",
-    "Ben Dickson",
-    "Sydney Gasmer",
-    "Vesa Ljumani",
-    "Stephanie Malagon",
-    "Matthew Pouliot"
-  ]
+  'Veridian Homes': [
+    'Michael Angsiwapong',
+    'Ben Dickson',
+    'Sydney Gasmer',
+    'Vesa Ljumani',
+    'Stephanie Malagon',
+    'Matthew Pouliot',
+  ],
 };
-
 
 // ---------- QUESTIONS ----------
 const questions = [
   {
-    id: "contributed",
-    label: "Contributed to the group as a whole (process & outcomes)",
-    minLabel: "DID NOT Meet Expectations",
-    maxLabel: "EXCEEDED Expectations",
+    id: 'contributed',
+    label: 'Contributed to the group as a whole (process & outcomes)',
+    minLabel: 'DID NOT Meet Expectations',
+    maxLabel: 'EXCEEDED Expectations',
     min: 1,
     max: 5,
   },
   {
-    id: "ideas",
+    id: 'ideas',
     label:
-      "Shared ideas and suggestions in Team sessions and Client meetings to make the project better",
-    minLabel: "DID NOT Meet Expectations",
-    maxLabel: "EXCEEDED Expectations",
+      'Shared ideas and suggestions in Team sessions and Client meetings to make the project better',
+    minLabel: 'DID NOT Meet Expectations',
+    maxLabel: 'EXCEEDED Expectations',
     min: 1,
     max: 5,
   },
   {
-    id: "leadership",
+    id: 'leadership',
     label:
-      "Demonstrated Leadership within the Team at appropriate points in the project",
-    minLabel: "DID NOT Meet Expectations",
-    maxLabel: "EXCEEDED Expectations",
+      'Demonstrated Leadership within the Team at appropriate points in the project',
+    minLabel: 'DID NOT Meet Expectations',
+    maxLabel: 'EXCEEDED Expectations',
     min: 1,
     max: 5,
   },
   {
-    id: "workshare",
-    label: "Carried fair share of total project workload",
-    minLabel: "Did Not Meet Expectations",
-    maxLabel: "Exceeded Expectations",
+    id: 'workshare',
+    label: 'Carried fair share of total project workload',
+    minLabel: 'Did Not Meet Expectations',
+    maxLabel: 'Exceeded Expectations',
     min: 1,
     max: 5,
   },
   {
-    id: "positivity",
+    id: 'positivity',
     label:
-      "Exhibited a positive, cooperative manner, especially under pressure",
-    minLabel: "Did Not Meet Expectations",
-    maxLabel: "Exceeded Expectations",
+      'Exhibited a positive, cooperative manner, especially under pressure',
+    minLabel: 'Did Not Meet Expectations',
+    maxLabel: 'Exceeded Expectations',
     min: 1,
     max: 5,
   },
 ];
 
 const overallQuestion = {
-  id: "overall",
+  id: 'overall',
   label:
-    "Please rate overall performance and contribution (1–10) for this member for the semester as a whole",
-  minLabel: "Lowest",
-  maxLabel: "Highest",
+    'Please rate overall performance and contribution (1–10) for this member for the semester as a whole',
+  minLabel: 'Lowest',
+  maxLabel: 'Highest',
   min: 1,
   max: 10,
 };
 
 // ---------- GOOGLE APPS SCRIPT ENDPOINT ----------
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbz0HB6JtiyRrpOnhaqcDXlUZb9W_VLrSUj0Qs2NWo1nSAgoies7c7QpzDNTfwHYQkMffg/exec";
+  'https://script.google.com/macros/s/AKfycbz0HB6JtiyRrpOnhaqcDXlUZb9W_VLrSUj0Qs2NWo1nSAgoies7c7QpzDNTfwHYQkMffg/exec';
 
 // ---------- UTILITIES ----------
 function range(max, start = 1) {
@@ -245,9 +244,9 @@ function radioName(memberIdx, qid) {
 export default function PeerEvaluationForm() {
   const formRef = useRef(null);
 
-  const [email, setEmail] = useState("");
-  const [yourName, setYourName] = useState("");
-  const [team, setTeam] = useState("");
+  const [email, setEmail] = useState('');
+  const [yourName, setYourName] = useState('');
+  const [team, setTeam] = useState('');
   const members = useMemo(() => (team ? teamsData[team] || [] : []), [team]);
 
   const [ratings, setRatings] = useState({});
@@ -297,9 +296,9 @@ export default function PeerEvaluationForm() {
 
   const resetForm = () => {
     if (formRef.current) formRef.current.reset();
-    setEmail("");
-    setYourName("");
-    setTeam("");
+    setEmail('');
+    setYourName('');
+    setTeam('');
     setRatings({});
     setFreeText({});
   };
@@ -308,18 +307,18 @@ export default function PeerEvaluationForm() {
     e.preventDefault();
     if (!validate()) {
       alert(
-        "Please complete all fields: email, your name, team, all ratings (1–5 & 1–10), and all text boxes for each member."
+        'Please complete all fields: email, your name, team, all ratings (1–5 & 1–10), and all text boxes for each member.'
       );
       return;
     }
 
     const params = new URLSearchParams();
-    params.set("email", email);
-    params.set("submittedBy", yourName);
-    params.set("team", team);
+    params.set('email', email);
+    params.set('submittedBy', yourName);
+    params.set('team', team);
 
     // add timestamp in ISO-8601 (UTC)
-    params.set("timestamp", new Date().toISOString());
+    params.set('timestamp', new Date().toISOString());
 
     members.forEach((member, idx) => {
       const i = idx + 1;
@@ -331,26 +330,27 @@ export default function PeerEvaluationForm() {
       });
 
       const ov = ratings?.[member]?.[overallQuestion.id];
-      if (ov != null) params.set(`member${i}_${overallQuestion.id}`, String(ov));
+      if (ov != null)
+        params.set(`member${i}_${overallQuestion.id}`, String(ov));
 
       const free = freeText?.[member] || {};
-      params.set(`member${i}_doneWell`, free.doneWell || "");
-      params.set(`member${i}_improve`, free.improve || "");
-      params.set(`member${i}_notes`, free.notes || "");
+      params.set(`member${i}_doneWell`, free.doneWell || '');
+      params.set(`member${i}_improve`, free.improve || '');
+      params.set(`member${i}_notes`, free.notes || '');
     });
 
     try {
       const res = await fetch(APPS_SCRIPT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: params.toString(),
       });
       const text = await res.text();
-      alert(text || "Submitted successfully!");
+      alert(text || 'Submitted successfully!');
       resetForm(); // fully clear UI and state
     } catch (err) {
       console.error(err);
-      alert("Error submitting the form. Please try again.");
+      alert('Error submitting the form. Please try again.');
     }
   };
 
@@ -387,7 +387,7 @@ export default function PeerEvaluationForm() {
             />
           </div>
 
-          <div className="field" style={{ gridColumn: "1/-1" }}>
+          <div className="field" style={{ gridColumn: '1/-1' }}>
             <label>Select Team</label>
             <select
               required
@@ -473,9 +473,9 @@ export default function PeerEvaluationForm() {
                   <textarea
                     required
                     rows={2}
-                    value={freeText?.[member]?.doneWell || ""}
+                    value={freeText?.[member]?.doneWell || ''}
                     onChange={(e) =>
-                      handleText(member, "doneWell", e.target.value)
+                      handleText(member, 'doneWell', e.target.value)
                     }
                   />
                 </div>
@@ -485,9 +485,9 @@ export default function PeerEvaluationForm() {
                   <textarea
                     required
                     rows={2}
-                    value={freeText?.[member]?.improve || ""}
+                    value={freeText?.[member]?.improve || ''}
                     onChange={(e) =>
-                      handleText(member, "improve", e.target.value)
+                      handleText(member, 'improve', e.target.value)
                     }
                   />
                 </div>
@@ -497,9 +497,9 @@ export default function PeerEvaluationForm() {
                   <textarea
                     required
                     rows={2}
-                    value={freeText?.[member]?.notes || ""}
+                    value={freeText?.[member]?.notes || ''}
                     onChange={(e) =>
-                      handleText(member, "notes", e.target.value)
+                      handleText(member, 'notes', e.target.value)
                     }
                   />
                 </div>
@@ -515,3 +515,5 @@ export default function PeerEvaluationForm() {
     </div>
   );
 }
+
+// ---------- GOOGLE APPS SCRIPT ENDPOINT ----------
